@@ -58,7 +58,15 @@ def change_contact(name, number):
         print('Такого контакта в книге нет')
 
 
+def show_contacts():
+    for i in phone_book:
+        print(i + ' ' + phone_book[i])
+
+
 while True:
+    print('1 - Добавить контакт \n2 - Удалить контакт (по имени) '
+          '\n3 - Просмотреть телефонную книгу \n4 - Изменить номер телефона (по имени) \n5 - Выход')
+
     command = int(input())
 
     if command == 1:
@@ -69,7 +77,7 @@ while True:
         name = input('Введите имя и фамилию \n')
         remove_contact(name)
     elif command == 3:
-        print(phone_book)
+        show_contacts()
     elif command == 4:
         name = input('Введите имя и фамилию \n')
         number = input('Введите новый номер \n')
