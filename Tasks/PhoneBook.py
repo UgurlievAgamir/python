@@ -51,6 +51,7 @@ def remove_contact(name):
 
 
 def change_contact(name, number):
+    name = normalize_name(name)
     if name in phone_book:
         phone_book[name] = number
     else:
