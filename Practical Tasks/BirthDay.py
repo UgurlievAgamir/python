@@ -1,6 +1,6 @@
 import random
 
-days = [day for day in range(0, 28)]
+days = [day for day in range(0, 29)]
 months = [month for month in range(0, 12)]
 
 
