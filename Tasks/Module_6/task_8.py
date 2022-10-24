@@ -1,15 +1,28 @@
-string = input()
+stroka = input()
 
-print(string[2])
-print(string[len(string) - 1])
+print(stroka[2])
+print(stroka[len(stroka) - 1])
 
-string_1 = ""
 for i in range(0, 5):
-    string_1 += string[i]
+    print(stroka[i], end='')
 
-print(string_1)
+print('\n')
 
-string_2 = ""
-for i in range(0, len(string) - 2):
-    string_2 += string[i]
+for i in range(0, len(stroka) - 2):
+    print(stroka[i], end='')
 
+print('\n')
+
+string_chet = ''
+string_nechet = ''
+for i in range(0, len(stroka)):
+    if i % 2 == 0:
+        string_chet += stroka[i]
+    else:
+        string_nechet += stroka[i]
+
+print(string_chet)
+print(string_nechet)
+
+print(stroka[::-1])
+print(stroka[::-2])
