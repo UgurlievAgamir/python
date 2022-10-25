@@ -1,10 +1,10 @@
 import random
 
-days = [day for day in range(0, 29)]
-months = [month for month in range(0, 13)]
-
 
 def birthday(people_count):
+    days = [day for day in range(0, 29)]
+    months = [month for month in range(0, 13)]
+
     D_data = []
     M_data = []
 
@@ -30,6 +30,3 @@ def birthday(people_count):
     return f"количество совпадений: {count_coincidences} " \
            f"количество не совпадений: {count_not_coincidences} " \
            f"вероятность совпадения: {(count_coincidences * 100) / (count_not_coincidences + count_coincidences)}"
-
-
-print(birthday(int(input())))

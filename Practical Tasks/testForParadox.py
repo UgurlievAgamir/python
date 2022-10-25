@@ -1,4 +1,4 @@
-import paradox
+from paradox import *
 
-print(paradox.birthday(24))
-print(paradox.monty_hall(23123))
+print(birthday(24))
+print(MontyHall(23123))

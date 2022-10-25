@@ -1,4 +1,3 @@
-import RadConverter
+from RadConverter import *
 
-print(help(RadConverter))
-print(dir(RadConverter))
+print(dir(gms_to_deg()))
