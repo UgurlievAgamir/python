@@ -1,7 +1,7 @@
 import random
 
 days = [day for day in range(0, 29)]
-months = [month for month in range(0, 12)]
+months = [month for month in range(0, 13)]
 
 
 def birthday(people_count):
