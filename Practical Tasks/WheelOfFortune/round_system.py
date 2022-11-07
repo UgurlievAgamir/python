@@ -13,8 +13,6 @@ def win_round():
         db_m.record = db_m.current_session_record
         db_m.update_record()
 
-    db_m.record = max(db_m.current_session_record, db_m.record)
-
 
 def start_game():
     lifes_count = 0
