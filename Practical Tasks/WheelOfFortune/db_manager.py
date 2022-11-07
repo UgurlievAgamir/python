@@ -1,5 +1,8 @@
 import random
 
+locked_symbol = '\u25A0'
+heart_symbol = '\u2764'
+
 current_session_record = 0
 record = 0
 
