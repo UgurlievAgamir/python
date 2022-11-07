@@ -1,4 +1,5 @@
-import task_generator as tg
+import db_manager as db_m
+import difficult_system as ds
 
 locked_symbol = '\u25A0'
 heart_symbol = '\u2764'
@@ -30,9 +31,28 @@ def unlock_part_of_word(unlocked_word, locked_word, part):
     return output.join(locked_word_list)
 
 
+def win_round():
+    print('Вы выиграли! Приз в студию!')
+
+    db_m.current_session_record += 1
+
+    if db_m.current_session_record > db_m.record:
+        print('Это ваш новый рекорд угаданных подряд слов: ' + str(db_m.current_session_record))
+        db_m.record = db_m.current_session_record
+        db_m.update_record()
+
+    db_m.record = max(db_m.current_session_record, db_m.record)
+
+
 def start_game():
-    lifes_count = 3
-    current_word = tg.get_word()
+    lifes_count = 0
+    if not ds.is_difficult_set:
+        lifes_count = ds.get_lifes_count_by_difficult()
+        ds.lifes = lifes_count
+        ds.is_difficult_set = True
+    else:
+        lifes_count = ds.lifes
+    current_word = db_m.get_random_word()
     locked_word = lock_word(current_word)
 
     while True:
@@ -40,7 +60,7 @@ def start_game():
         player_answer = input('Назовите букву или слово целиком: ')
 
         if player_answer == current_word:
-            print('Вы выиграли! Приз в студию!')
+            win_round()
             break
         elif player_answer in current_word:
             if player_answer in locked_word:
@@ -50,7 +70,7 @@ def start_game():
                 locked_word = unlock_part_of_word(current_word, locked_word, player_answer)
 
             if locked_symbol not in locked_word:
-                print('Вы выиграли! Приз в студию!')
+                win_round()
                 break
         else:
             print('Неправильно. Вы теряете жизнь')
@@ -58,4 +78,5 @@ def start_game():
 
         if lifes_count == 0:
             print('Жизни закончились. Вы проиграли')
+            print('Ваш рекорд ' + str(db_m.record))
             break
