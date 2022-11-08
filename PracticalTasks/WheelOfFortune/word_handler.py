@@ -1,4 +1,4 @@
-from db_manager import locked_symbol
+from WheelOfFortune.db_manager import locked_symbol
 
 
 def lock_word(word):
