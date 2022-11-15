@@ -1,4 +1,4 @@
-import WheelOfFortune.round_system as rs
+import round_system as rs
 
 
 def WOF_start():

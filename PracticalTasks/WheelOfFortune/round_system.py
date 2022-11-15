@@ -1,6 +1,6 @@
-import WheelOfFortune.db_manager as db_m
-import WheelOfFortune.difficult_system as ds
-import WheelOfFortune.word_handler as wh
+import db_manager as db_m
+import difficult_system as ds
+import word_handler as wh
 
 
 def win_round():
