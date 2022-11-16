@@ -11,7 +11,7 @@ def translate_to_list(file_name):
         return numbers_list
     except FileNotFoundError:
         return 'Файл не найден. Проверьте правильность названия'
-    except TypeError:
+    except ValueError:
         return 'В файле не все элементы числа'
     except Exception as ex:
         return 'Ошибка обработки: ' + str(ex)
