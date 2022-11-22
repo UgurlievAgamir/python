@@ -1,13 +1,19 @@
 import random
 
 
-def MontyHall(count_of_interations):
-    count = 0
-    count_changed_choice = 0
+def monty_hall(count_of_iterations: int) -> str:
+    """
+    Функция проверяет парадокс монти холла
+    :param count_of_iterations: количество итераций для проверки парадокса
+    :return: результат эксперимента
+    """
 
-    for i in range(0, count_of_interations):
-        a = [0, 0, 1]
-        player_choice = random.choice(a)
+    count: int = 0
+    count_changed_choice: int = 0
+
+    for i in range(0, count_of_iterations):
+        a: list = [0, 0, 1]
+        player_choice: int = random.choice(a)
         if player_choice == 1:
             count += 1
         else:

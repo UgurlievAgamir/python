@@ -1,9 +1,13 @@
 import round_system as rs
 
 
-def WOF_start():
+def wof_start() -> None:
+    """
+    Функция запускает игру
+    :return: ничего
+    """
     while True:
-        command = int(input('1 - Начать игру, 2 - Выход \n'))
+        command: int = int(input('1 - Начать игру, 2 - Выход \n'))
 
         if command == 1:
             rs.start_game()

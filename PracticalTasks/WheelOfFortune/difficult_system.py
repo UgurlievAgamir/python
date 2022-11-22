@@ -1,9 +1,13 @@
-is_difficult_set = False
-lifes = 0
+is_difficult_set: bool = False
+lives: int = 0
 
 
-def get_lifes_count_by_difficult():
-    difficult = int(input('Выберите сложность: 1 - Легкая, 2 - Нормальная, 3 - Сложная '))
+def get_lives_count_by_difficult() -> int:
+    """
+
+    :return: колмчество жизней в зависимости от выбранного пользователем сложности игры
+    """
+    difficult: int = int(input('Выберите сложность: 1 - Легкая, 2 - Нормальная, 3 - Сложная '))
 
     if difficult == 1:
         return 7
@@ -13,4 +17,4 @@ def get_lifes_count_by_difficult():
         return 3
     else:
         print('Неверная сложность')
-        return get_lifes_count_by_difficult()
+        return get_lives_count_by_difficult()

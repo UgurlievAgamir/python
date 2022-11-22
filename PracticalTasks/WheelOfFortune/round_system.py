@@ -3,7 +3,10 @@ import difficult_system as ds
 import word_handler as wh
 
 
-def win_round():
+def win_round() -> None:
+    """
+    Функция засчитывает победу в раунде
+    """
     print('Вы выиграли! Приз в студию!')
 
     db_m.current_session_record += 1
@@ -14,20 +17,23 @@ def win_round():
         db_m.update_record()
 
 
-def start_game():
-    lifes_count = 0
+def start_game() -> None:
+    """
+    Функция разыгрывает игру до проигрыша игрока или до конца имеющихся слов
+    """
+    lives_count: int = 0
     if not ds.is_difficult_set:
-        lifes_count = ds.get_lifes_count_by_difficult()
-        ds.lifes = lifes_count
+        lives_count = ds.get_lives_count_by_difficult()
+        ds.lives = lives_count
         ds.is_difficult_set = True
     else:
-        lifes_count = ds.lifes
-    current_word = db_m.get_random_word()
-    locked_word = wh.lock_word(current_word)
+        lives_count = ds.lives
+    current_word: str = db_m.get_random_word()
+    locked_word: str = wh.lock_word(current_word)
 
     while True:
-        print(f'{locked_word} | {db_m.heart_symbol}x{lifes_count}')
-        player_answer = input('Назовите букву или слово целиком: ')
+        print(f'{locked_word} | {db_m.heart_symbol}x{lives_count}')
+        player_answer: str = input('Назовите букву или слово целиком: ')
 
         if player_answer == current_word:
             win_round()
@@ -44,9 +50,9 @@ def start_game():
                 break
         else:
             print('Неправильно. Вы теряете жизнь')
-            lifes_count -= 1
+            lives_count -= 1
 
-        if lifes_count == 0:
+        if lives_count == 0:
             print('Жизни закончились. Вы проиграли')
             print('Ваш рекорд ' + str(db_m.record))
             break

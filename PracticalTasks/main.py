@@ -1,4 +1,4 @@
 import WheelOfFortune
 
 
-WheelOfFortune.WOF_start()
+WheelOfFortune.wof_start()

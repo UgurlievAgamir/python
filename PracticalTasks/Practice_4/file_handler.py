@@ -1,7 +1,12 @@
-def read_file(file_name):
-    output_text = {}
+def read_file(file_name: str) -> list:
+    """
+    Считывает текст и возвращает список уникальных слов в нижнем регистре
+    :param file_name: имя файла с текстом, где нужно считать слова
+    :return: список уникальных слов в нижнем регистре
+    """
+    output_text: set = {}
     with open(file_name, encoding='UTF-8') as file:
-        words_list = file.read().split(' ')
+        words_list: list = file.read().split(' ')
 
     for i in range(0, len(words_list)):
         words_list[i] = words_list[i].lower()
@@ -16,7 +21,12 @@ def read_file(file_name):
     return list(output_text)
 
 
-def write_file(file_name, words_list):
+def write_file(file_name: str, words_list: list) -> None:
+    """
+    Запмсывает в файл список отсортированных по алфавиту уникальных слов в нижнем регистре
+    :param file_name: имя файла, куда нужно записать слова
+    :param words_list: список уникальных слов в нижнем регистре
+    """
     words_list = sorted(words_list)
     with open(file_name, encoding='UTF-8', mode='w') as file:
         file.write('Всего уникальных слов: ' + str(len(words_list)))

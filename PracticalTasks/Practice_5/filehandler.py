@@ -1,8 +1,16 @@
-def translate_to_list(file_name):
+from typing import Union
+
+
+def translate_to_list(file_name) -> Union[list, str]:
+    """
+    Функция считывает числа с файла и возвращает их в виде списка
+    :param file_name: имя файла
+    :return: список чисел
+    """
     try:
         file = open(file_name)
-        count = int(file.readline())
-        numbers_list = file.read().splitlines()
+        count: int = int(file.readline())
+        numbers_list: list = file.read().splitlines()
 
         if len(numbers_list) > count:
             raise Exception('Количество не совпадает')
