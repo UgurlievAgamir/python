@@ -1,10 +1,14 @@
+from ctypes import Union
 # 79000000000
 
-phone_book = {}
+phone_book: Union(dict, set) = {}
 
 
-def get_num():
-    number = input('Введите номер \n')
+def get_num() -> str:
+    """
+    :return: нормализованный номер
+    """
+    number: str = input('Введите номер \n')
     number = number.replace(' ', '').replace('-', '')
 
     if number[:2] == '+7' and len(number) == 12:
@@ -19,8 +23,11 @@ def get_num():
     return '0'
 
 
-def get_name():
-    name = input('Введите имя и фамилию \n')
+def get_name() -> str:
+    """
+    :return: нормализованное имя
+    """
+    name: str = input('Введите имя и фамилию \n')
     name.lower()
 
     name_surname = name.split(' ')
@@ -32,7 +39,12 @@ def get_name():
     return name
 
 
-def add_contact(name, number):
+def add_contact(name: str, number: str) -> None:
+    """
+    Добавляет новый контакт в книгу
+    :param name: имя контакта
+    :param number: номер контакта
+    """
     if number != '0':
         print(number, name)
         phone_book[name] = number
@@ -41,19 +53,31 @@ def add_contact(name, number):
         print('Неправильно набран номер')
 
 
-def remove_contact(name):
+def remove_contact(name: str):
+    """
+    Удаляет контакт из книги по имени
+    :param name: имя контакта
+    """
     print(phone_book.pop(name, 'Такого контакта в книге нет'))
     print('Удалено')
 
 
-def change_contact(name, number):
+def change_contact(name: str, number: str) -> None:
+    """
+    Изменяет данные существующего контакта
+    :param name: имя контакта
+    :param number: номер контакта
+    """
     if name in phone_book:
         phone_book[name] = number
     else:
         print('Такого контакта в книге нет')
 
 
-def show_contacts():
+def show_contacts() -> None:
+    """
+    Показывает все контакты в книге
+    """
     for i in phone_book:
         print(i + ' ' + phone_book[i])
 
@@ -62,7 +86,7 @@ while True:
     print('1 - Добавить контакт \n2 - Удалить контакт (по имени) '
           '\n3 - Просмотреть телефонную книгу \n4 - Изменить номер телефона (по имени) \n5 - Выход')
 
-    command = int(input())
+    command: int = int(input())
 
     if command == 1:
         add_contact(get_name(), get_num())
