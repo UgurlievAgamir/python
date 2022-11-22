@@ -1,10 +1,13 @@
+from ctypes import Union
+
+
 def read_file(file_name: str) -> list:
     """
     Считывает текст и возвращает список уникальных слов в нижнем регистре
     :param file_name: имя файла с текстом, где нужно считать слова
     :return: список уникальных слов в нижнем регистре
     """
-    output_text: set = {}
+
     with open(file_name, encoding='UTF-8') as file:
         words_list: list = file.read().split(' ')
 
@@ -16,14 +19,14 @@ def read_file(file_name: str) -> list:
         if word == '' or len(word) == 1:
             words_list.remove(word)
 
-    output_text = set(words_list)
+    output_text: Union(set, dict) = set(words_list)
 
     return list(output_text)
 
 
 def write_file(file_name: str, words_list: list) -> None:
     """
-    Запмсывает в файл список отсортированных по алфавиту уникальных слов в нижнем регистре
+    Записывает в файл список отсортированных по алфавиту уникальных слов в нижнем регистре
     :param file_name: имя файла, куда нужно записать слова
     :param words_list: список уникальных слов в нижнем регистре
     """

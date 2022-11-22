@@ -21,5 +21,5 @@ def monty_hall(count_of_iterations: int) -> str:
             a.remove(player_choice)
             if a[0] == 1:
                 count_changed_choice += 1
-    return f'количество не меняя выбор: {count} количество поменяв выбор: {count_changed_choice} вероятность выиграша ' \
-           f'при своем выборе: {(count * 100) / (count + count_changed_choice)} '
+    return f'количество не меняя выбор: {count} количество поменяв выбор: {count_changed_choice} вероятность выиграша' \
+           f' при своем выборе: {(count * 100) / (count + count_changed_choice)} '

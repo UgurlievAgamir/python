@@ -26,5 +26,6 @@ def translate_to_list(file_name) -> Union[list, str]:
     finally:
         try:
             file.close()
-        except:
+        except Exception() as ex:
+            print(ex)
             pass
