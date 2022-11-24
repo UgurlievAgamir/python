@@ -1,7 +1,7 @@
 from math import pi
 
 
-def rad_to_deg(rad: int) -> int:
+def rad_to_deg(rad: int) -> float:
     """
     rad to deg
     :param rad: radians
