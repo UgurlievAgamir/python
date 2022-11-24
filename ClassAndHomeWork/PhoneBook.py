@@ -1,7 +1,7 @@
-from ctypes import Union
+from typing import Union
 # 79000000000
 
-phone_book: Union(dict, set) = {}
+phone_book: Union[dict, set] = {}
 
 
 def get_num() -> str:

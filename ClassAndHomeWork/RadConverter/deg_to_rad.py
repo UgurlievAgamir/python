@@ -1,7 +1,7 @@
 from math import pi
 
 
-def deg_to_rad(deg: int) -> int:
+def deg_to_rad(deg: int) -> float:
     """
     deg to rad
     :param deg: decimal degrees

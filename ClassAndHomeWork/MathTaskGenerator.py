@@ -1,4 +1,5 @@
 import random
+from typing import Union
 
 lives: int = 3
 count: int = 0
@@ -8,8 +9,8 @@ while True:
     n2: int = random.randint(0, 100)
     operator: int = random.randint(0, 4)
 
-    player_answer: int = 0
-    answer: int = 0
+    player_answer: Union[int, float] = 0
+    answer: Union[int, float] = 0
 
     if operator == 0:
         player_answer = int(input(f'{n1} + {n2} = '))

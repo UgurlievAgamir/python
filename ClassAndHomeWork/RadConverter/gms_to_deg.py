@@ -1,4 +1,4 @@
-def gms_to_deg(degrees: int, minutes: int, seconds: int) -> int:
+def gms_to_deg(degrees: int, minutes: int, seconds: int) -> float:
     """
     gms to deg
     :param degrees: str degrees with special symbol
