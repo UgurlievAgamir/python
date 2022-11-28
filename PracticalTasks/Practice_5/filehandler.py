@@ -1,7 +1,7 @@
 from typing import Union
 
 
-def translate_to_list(file_name) -> Union[list, str]:
+def translate_to_list(file_name: str) -> Union[list, str]:
     """
     Функция считывает числа с файла и возвращает их в виде списка
     :param file_name: имя файла
