@@ -1,4 +1,4 @@
-from ctypes import Union
+from typing import Union
 
 
 def read_file(file_name: str) -> list:
@@ -19,7 +19,7 @@ def read_file(file_name: str) -> list:
         if word == '' or len(word) == 1:
             words_list.remove(word)
 
-    output_text: Union(set, dict) = set(words_list)
+    output_text: Union[set, dict] = set(words_list)
 
     return list(output_text)
 
