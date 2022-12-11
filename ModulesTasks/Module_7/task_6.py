@@ -13,6 +13,6 @@ for j in range(0, search_input_count):
 
 for town in towns_search:
     for data in towns_db:
-        for db_town in data:
-            if town == db_town:
-                print(data[0])
+        if town in data:
+            print(data[0])
+            break
