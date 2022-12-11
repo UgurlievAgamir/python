@@ -30,7 +30,13 @@ import urllib.request
 ssl._create_default_https_context = ssl._create_unverified_context
 
 tel_nums = urllib.request.urlopen("https://www.summet.com/dmsi/html/codesamples/addresses.html").read().decode()
-print(tel_nums)
+
+
+pattern = r'(([A-Za-z.-_]+)@(?:\w+\.[A-Za-z]+\b))'
+emails = 'trskndfksdf@gmail.com asndkasdkaskdnjksandi2i@jnjncccm,ain'
+
+match = re.findall(pattern, emails)
+print(match)
 
 
 # match = pattern.findall(tel_nums)
@@ -38,7 +44,8 @@ print(tel_nums)
 
 #
 #
-# pattern = r"(?:<li>)(?P<names>[^<]*)(?:<[^>]*>)(?P<street>[^<]*)(?:<[^>]*>)(?P<state>[^<]*)(?:<[^>]*>)(?P<numbers>[^<]*)"
+# pattern = r"(?:<li>)(?P<names>[^<]*)(?:<[^>]*>)(?P<street>[^<]*)(?:<[^>]*>)(?P<state>[^<]*)(?:<[^>]*>)(?P<numbers>[^<]
+# *)"
 
 # name_pattern = r"(?:(?:<li>)(\w+ \w+\b[^<]*))
 # street_pattern = r"(?:>)((?:P.O.|Ap|\d+)[^<]*)"
