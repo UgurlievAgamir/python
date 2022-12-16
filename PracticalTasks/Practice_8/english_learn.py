@@ -4,8 +4,6 @@ from typing import Any, Dict
 import pymorphy2
 import translate
 
-phrasebook = {}
-
 morph = pymorphy2.MorphAnalyzer()
 en_translator = translate.Translator(from_lang='ru', to_lang='en')
 
@@ -13,15 +11,14 @@ en_translator = translate.Translator(from_lang='ru', to_lang='en')
 def get_english_phrasebook(file_name: str) -> None:
     with open(file_name, encoding='windows-1251') as file:
         list = file.read().split()
-        phrasebook = get_sorted_dict(normalize_words_list(list))
-        write_dict_to_file('phrasebook.txt')
+        write_dict_to_file('phrasebook.txt', get_sorted_dict(normalize_words_list(list)))
 
 
-def write_dict_to_file(file_name: str) -> None:
+def write_dict_to_file(file_name: str, book: dict) -> None:
     with open(file_name, encoding='windows-1251', mode='w') as file:
-        for word in phrasebook:
-            print(word)
-            file.write(f'{word} | {en_translator.translate(word)} | {phrasebook[word]}')
+        for word in book:
+            if len(word) > 1 or word.lower() == 'я':
+                file.write(f'{word} | {en_translator.translate(word)} | {book[word]}\n')
 
 
 def get_sorted_dict(words: list) -> Dict[Any, Any]:
