@@ -20,6 +20,7 @@ wind_pattern = r'(?:"speed":)([^\,]*)'
 description_pattern = r'(?:"description":")([^\,]*)"'
 pressure_pattern = r'(?:"pressure":)([^\,]*)'
 
+print(current_time, sep='')
 print(data)
 
 with open("weather_logs.txt", mode='w', encoding='UTF-8') as file:
@@ -29,3 +30,9 @@ with open("weather_logs.txt", mode='w', encoding='UTF-8') as file:
     file.write(f'Влажность воздуха: {re.findall(humidity_pattern, data)[0]}%\n')
     file.write(f'Скорость ветра: {re.findall(wind_pattern, data)[0]} м/с\n')
     file.write(f'Атмосферное давление: {re.findall(wind_pattern, data)[0]} мм рт. ст.\n')
+
+print(f'Запрос погоды в городе: {re.findall(name_pattern, data)[0]}')
+print(f'Температура: {re.findall(temp_pattern, data)[0]}°C, {re.findall(description_pattern, data)[0]}')
+print(f'Влажность воздуха: {re.findall(humidity_pattern, data)[0]}%')
+print(f'Скорость ветра: {re.findall(wind_pattern, data)[0]} м/с')
+print(f'Атмосферное давление: {re.findall(wind_pattern, data)[0]} мм рт. ст.')
